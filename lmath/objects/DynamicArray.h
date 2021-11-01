@@ -1,3 +1,6 @@
+// Fancier than array, not as fancy as vector,
+// never have to worry about memory again
+// (unless you're the one writing this AAAAAAAH)
 class DynamicArray
 {
     size_t length     = 2;
@@ -79,7 +82,7 @@ class DynamicArray
             if (index < noElements)
                 elements[index] = value;
             else
-                std::cerr << "Index doesn't exist\n";
+                std::cerr << "Index " << index << " doesn't exist\n";
         }
 
         void print()
@@ -105,4 +108,19 @@ class DynamicArray
         {
             delete[] elements;
         }
+
+        void sort()
+        {
+            quickSort(noElements, elements);
+        }
+
+        void sort(size_t (*g)(size_t))
+        {
+            quickSort(noElements, elements, (*g));
+        }
+
+        /* void sort(fnpointer to sort by) */
+        /* { */
+        /*     elements = quicksort(noElements, elements); */
+        /* } */
 };

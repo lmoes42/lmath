@@ -8,10 +8,10 @@ size_t defaultPollardFunction(size_t x)
 DynamicArray naiveFactorise(size_t n)
 {
     DynamicArray factors;
-    int const bound = (int) sqrt(n);
+    size_t const bound = (int) sqrt(n);
     for (size_t primeidx = 0; primeidx != numpr && primeidx < bound + 1 && n - 1; ++primeidx)
     {
-        int const prime = primeNumbersHeader[primeidx];
+        size_t const prime = primeNumbersHeader[primeidx];
         if (!(n % prime))
         {
             while (!(n % prime))
@@ -22,7 +22,14 @@ DynamicArray naiveFactorise(size_t n)
         }
     }
     if (n - 1)
-        std::cerr << "OverflowError in factorisation\n";
+    {
+        std::cerr << "lmath/numberTheory/factorise.h\n"
+            <<
+            "OverflowError in factorisation: "
+            << n
+            << " too large.\n";
+        throw n;
+    }
 
     return factors;
 }

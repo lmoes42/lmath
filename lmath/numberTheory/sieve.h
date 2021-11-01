@@ -1,13 +1,10 @@
 LengthAndPointer sieve(size_t n)
 {
 /* Sieve of Eratosthenes, takes an integer
- * and returns a pointer to an array containing
- * all primes up to that integer, with
- * the first element the number
- * of primes in the array;
- * works up to the 10.000.000th prime */
+   and returns a size_t representing length and a pointer, use as
+   auto [primesLength, primes] = sieve(42); */
 
-    size_t *boolar =  new size_t[n];
+    size_t *boolar = new size_t[n];
     size_t i, j;
     boolar[0] = 0;
     boolar[1] = 0;

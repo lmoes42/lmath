@@ -1,20 +1,21 @@
+// Common functions used in math, e.g. min, max
 #include "lmath/commonFunctions/commonFunctions.h"
-size_t min(size_t a, size_t b)
+auto min(auto a, auto b)
 {
     return (a < b ? a : b);
 }
 
-size_t max(size_t a, size_t b)
+auto max(auto a, auto b)
 {
     return (a > b ? a : b);
 }
 
-size_t abs(size_t a)
+auto abs(auto a)
 {
     return (a > 0 ? a : -a);
 }
 
-float sqrt(float x)
+float sqrt(auto x)
 {
     float x0 = x;
     for (size_t i = 0; i != 10; ++i)
