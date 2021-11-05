@@ -85,10 +85,26 @@ class DynamicArray
                 std::cerr << "Index " << index << " doesn't exist\n";
         }
 
-        void print()
+        void swap(size_t idxA, size_t idxB)
         {
-            for (size_t idx = 0; idx != noElements; ++idx)
-                std::cout << elements[idx] << '\n';
+            size_t temp = idxB;
+            changeIndex(idxB, elements[idxA]);
+            changeIndex(idxA, elements[temp]);
+        }
+
+        void print(int printNewline = 0)
+        {
+            if (!printNewline)
+            {
+                for (size_t idx = 0; idx != noElements; ++idx)
+                    std::cout << elements[idx];
+                std::cout << '\n';
+            }
+            else
+            {
+                for (size_t idx = 0; idx != noElements; ++idx)
+                    std::cout << elements[idx] << '\n';
+            }
         }
 
         void print(size_t start)
