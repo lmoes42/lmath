@@ -3,6 +3,7 @@
  *  Voodoo, witchcraft, wizardry, all can be found here
  */
 enum magicNumbers {
-    withNewline = 1,
-    withMultiplicities = 1
+    withNewline          = 1,
+    withMultiplicities   = 1,
+    keepTwoDDynamicArray = 1;
 };

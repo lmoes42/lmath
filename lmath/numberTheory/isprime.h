@@ -5,7 +5,6 @@ bool isprime(size_t n){
     if (!( (n-1) % 6 == 0 || (n+1) % 6 == 0))
         return n == 3;
 
-
     size_t i, temp;
     size_t const bound = sqrt(n+1);
 
@@ -15,7 +14,7 @@ bool isprime(size_t n){
             return 0;
     }
 
-    for (i = 10007; i < bound; i += 2)
+    for (i = primeNumbersHeader[numpr - 1]; i < bound; i += 2)
     {
         if (n % i == 0)
             return 0;

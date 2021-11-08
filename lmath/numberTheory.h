@@ -8,4 +8,4 @@ auto const [numpr, primeNumbersHeader] = sieve(1e4);
 #include "lmath/numberTheory/factorise.h"
 #include "lmath/numberTheory/eulerPhi.h"
 #include "lmath/numberTheory/isPermutation.h"
-/* #include "lmath/numberTheory/permutations.h" */
+#include "lmath/numberTheory/permutations.h"

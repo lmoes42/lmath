@@ -4,13 +4,13 @@ LengthAndPointer sieve(size_t n)
 // and returns a size_t representing length and a pointer, use as
 // auto const [primesLength, primes] = sieve(42);
 
-    size_t *boolar = new size_t[n];
+    bool *boolar = new bool[n];
     size_t i, j;
     boolar[0] = 0;
     boolar[1] = 0;
 
     // Mark all elements greater than 1 as true.
-    for (int loop = 2; loop < n; ++loop)
+    for (size_t loop = 2; loop < n; ++loop)
         boolar[loop] = 1;
 
     i = 1;

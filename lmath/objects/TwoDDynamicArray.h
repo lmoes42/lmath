@@ -114,6 +114,15 @@ class TwoDDynamicArray
         /*     } */
         /* } */
 
+        DynamicArray applyFunction(size_t (*g)(DynamicArray))
+        {
+            DynamicArray ret;
+            for (size_t i = 0; i != noElements; ++i)
+                ret.append((*g)(elements[i]));
+            return ret;
+        }
+
+
         void destroy()
         {
             for (size_t idx = 0; idx != noElements; ++idx)
@@ -121,13 +130,21 @@ class TwoDDynamicArray
             delete[] elements;
         }
 
+        DynamicArray removeDimension(bool keep = 0)
+        {
+            DynamicArray ret, el;
+            for (size_t i = 0; i != noElements; ++i)
+            {
+                el = elements[i];
+                ret.append(el.toSize_t());
+            }
+            if (!keep)
+                destroy();
+            return ret;
+        }
+
         /* void sort(size_t (*g)(DynamicArray)) */
         /* { */
         /*     quickSort(noElements, elements, (*g)); */
-        /* } */
-
-        /* void sort(fnpointer to sort by) */
-        /* { */
-        /*     elements = quicksort(noElements, elements); */
         /* } */
 };

@@ -18,5 +18,6 @@ size_t eulerPhi(size_t n)
             ret *= prime;
     }
 
+    factors.destroy();
     return ret;
 }

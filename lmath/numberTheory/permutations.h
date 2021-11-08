@@ -1,29 +1,42 @@
 TwoDDynamicArray permutations(DynamicArray A)
 {
-    int n = A.noElements;
-    TwoDDynamicArray outp;
-    DynamicArray c;
-    c.assign(n,0);
+    TwoDDynamicArray ret;
+    auto length = A.noElements;
+    size_t c[length];
 
-    outp.append(A);
+    for (size_t i = 0; i != length; ++i)
+        c[i]   = 0;
+
+    ret.append(A);
 
     size_t i = 0;
-    while (i < n)
+
+    while (i < length)
     {
-        if (c.at(i) < i)
+        if (c[i] < i)
         {
-            if ( !(i & 1) ) std::swap(A.at(0),A.at(i));
-            else swap(A.at(c.at(i),i),A.at(i));
-            outp.push_back(A);
-            ++c.at(i);
+
+            DynamicArray An;
+            for (size_t i = 0; i != length; ++i)
+                An.append(A.at(i));
+
+            if (!(i & 1))
+                An.swap(0, i);
+            else
+                An.swap(c[i], i);
+
+            ret.append(An);
+            A = An;
+            ++c[i];
             i = 0;
         }
         else
         {
-            c.changeIndex(i,0);
+            c[i] = 0;
             ++i;
         }
     }
-    return outp;
+
+    return ret;
 }
 

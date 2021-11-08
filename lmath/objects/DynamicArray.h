@@ -87,9 +87,7 @@ class DynamicArray
 
         void swap(size_t idxA, size_t idxB)
         {
-            size_t temp = idxB;
-            changeIndex(idxB, elements[idxA]);
-            changeIndex(idxA, elements[temp]);
+            std::swap(elements[idxA], elements[idxB]);
         }
 
         void print(int printNewline = 0)
@@ -133,6 +131,23 @@ class DynamicArray
         void sort(size_t (*g)(size_t))
         {
             quickSort(noElements, elements, (*g));
+        }
+
+        size_t toSize_t()
+        {
+            size_t ret = 0;
+            for (size_t i = 0; i != noElements; ++i)
+            {
+                ret *= 10;
+                ret += elements[i];
+            }
+            return ret;
+        }
+
+        void fromPointer(LengthAndPointer LAP)
+        {
+            length   = LAP.length;
+            elements = LAP.memoryAdress;
         }
 
         /* void sort(fnpointer to sort by) */
